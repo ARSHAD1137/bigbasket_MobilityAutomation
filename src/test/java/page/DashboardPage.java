@@ -7,11 +7,11 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
-public class bigbasketPage extends bigbasketBase {
+public class DashboardPage extends bigbasketBase {
 
     private AndroidDriver<AndroidElement> driver;
 
-    public bigbasketPage(AndroidDriver driver) {
+    public DashboardPage(AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }

@@ -3,11 +3,12 @@ package base;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeTest;
+import test.BigbasketExtentReport;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class bigbasketBase {
+public class bigbasketBase extends BigbasketExtentReport {
 
     public static AndroidDriver driver;
 
