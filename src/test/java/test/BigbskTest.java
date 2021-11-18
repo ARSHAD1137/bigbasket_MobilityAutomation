@@ -3,6 +3,11 @@ package test;
 import base.bigbasketBase;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.DashboardPage;
 import page.LoginPage;
@@ -33,6 +38,11 @@ public class BigbskTest extends bigbasketBase {
         logpage.confirm();
 
         test2.log(Status.PASS, "Successfully confirmation");
+
+        Thread.sleep(3000);
+        WebElement usericon = driver.findElement(By.id("com.bigbasket.mobileapp:id/unreadChatIcon"));
+        Thread.sleep(2000);
+        Assert.assertEquals(true, usericon.isDisplayed());
     }
 
     @Test(priority = 3)
@@ -45,6 +55,11 @@ public class BigbskTest extends bigbasketBase {
         srch.search();
 
         test3.log(Status.PASS, "Get Product in bigbasket");
+        Thread.sleep(3000);
+        WebElement addButton = driver.findElement(By.id("com.bigbasket.mobileapp:id/btnAddToBasket"));
+        Thread.sleep(2000);
+        Assert.assertEquals(true, addButton.isDisplayed());
+
     }
 
     @Test(priority = 4)
@@ -57,6 +72,10 @@ public class BigbskTest extends bigbasketBase {
         addbskt.add();
 
         test4.log(Status.PASS, "Successfully add to basket");
+
+        WebElement moreOption = driver.findElement(By.xpath("//android.widget.ImageView[@content-desc=\"More options\"]"));
+        Thread.sleep(2000);
+        Assert.assertEquals(true, moreOption.isDisplayed());
     }
 
     @Test(priority = 5)
