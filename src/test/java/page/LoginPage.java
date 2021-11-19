@@ -5,7 +5,10 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class LoginPage extends bigbasketBase {
 
@@ -26,7 +29,12 @@ public class LoginPage extends bigbasketBase {
         loginbtn.click();
     }
 
-    public void confirm(){
+    public void confirm() throws InterruptedException {
         cmfbt.click();
+        
+        Thread.sleep(5000);
+        WebElement usericon = driver.findElement(By.id("com.bigbasket.mobileapp:id/unreadChatIcon"));
+        Thread.sleep(2000);
+        Assert.assertEquals(true, usericon.isDisplayed());
     }
 }

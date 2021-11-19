@@ -5,7 +5,10 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class DashboardPage extends bigbasketBase {
 
@@ -26,6 +29,11 @@ public class DashboardPage extends bigbasketBase {
         addbtn.click();
         Thread.sleep(5000);
         bskbtn.click();
+
+        Thread.sleep(3000);
+        WebElement moreOption = driver.findElement(By.xpath("//android.widget.ImageView[@content-desc=\"More options\"]"));
+        Thread.sleep(2000);
+        Assert.assertEquals(true, moreOption.isDisplayed());
     }
 
 }
