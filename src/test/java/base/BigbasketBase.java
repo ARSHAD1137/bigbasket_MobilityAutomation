@@ -17,7 +17,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class bigbasketBase extends BigbasketExtentReport {
+public class BigbasketBase extends BigbasketExtentReport {
 
     public static AndroidDriver driver;
 

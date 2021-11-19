@@ -1,6 +1,6 @@
 package page;
 
-import base.bigbasketBase;
+import base.BigbasketBase;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class DashboardPage extends bigbasketBase {
+public class DashboardPage extends BigbasketBase {
 
     private AndroidDriver<AndroidElement> driver;
 
@@ -20,19 +20,18 @@ public class DashboardPage extends bigbasketBase {
     }
 
     @AndroidFindBy(id = "com.bigbasket.mobileapp:id/btnAddToBasket")
-    private AndroidElement addbtn;
+    private AndroidElement addBtn;
 
     @AndroidFindBy(id = "com.bigbasket.mobileapp:id/cartcountView")
-    private AndroidElement bskbtn;
+    private AndroidElement basketBtn;
 
-    public void add() throws InterruptedException {
-        addbtn.click();
+    public void addSelectedProduct() throws InterruptedException {
+        addBtn.click();
         Thread.sleep(5000);
-        bskbtn.click();
+        basketBtn.click();
 
         Thread.sleep(3000);
         WebElement moreOption = driver.findElement(By.xpath("//android.widget.ImageView[@content-desc=\"More options\"]"));
-        Thread.sleep(2000);
         Assert.assertEquals(true, moreOption.isDisplayed());
     }
 

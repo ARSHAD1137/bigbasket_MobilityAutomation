@@ -1,6 +1,6 @@
 package page;
 
-import base.bigbasketBase;
+import base.BigbasketBase;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class SearchPage extends bigbasketBase {
+public class SearchPage extends BigbasketBase {
 
     private AndroidDriver<AndroidElement> driver;
 
@@ -20,32 +20,28 @@ public class SearchPage extends bigbasketBase {
     }
 
     @AndroidFindBy(id = "com.bigbasket.mobileapp:id/searchView")
-    private AndroidElement srchBox;
+    private AndroidElement searchBox;
 
     @AndroidFindBy(xpath = "(//android.widget.ImageView[@content-desc=\"Product Image\"])[3]")
-    private AndroidElement srchimg;
-
-    @AndroidFindBy(id = "com.bigbasket.mobileapp:id/txtMsg")
-    private AndroidElement txt;
+    private AndroidElement searchIcon;
 
     @AndroidFindBy(id = "com.bigbasket.mobileapp:id/unreadChatIcon")
-    private AndroidElement usrlog;
+    private AndroidElement userIcon;
 
     @AndroidFindBy(id = "com.bigbasket.mobileapp:id/txtTerm")
-    private AndroidElement text1;
+    private AndroidElement productName;
 
     public void search() throws InterruptedException {
-        usrlog.click();
+        userIcon.click();
         Thread.sleep(3000);
-        srchimg.click();
+        searchIcon.click();
         Thread.sleep(3000);
-        srchBox.sendKeys("egg");
+        searchBox.sendKeys("egg");
         Thread.sleep(3000);
-        text1.click();
+        productName.click();
 
         Thread.sleep(3000);
-        WebElement addButton = driver.findElement(By.id("com.bigbasket.mobileapp:id/btnAddToBasket"));
-        Thread.sleep(2000);
-        Assert.assertEquals(true, addButton.isDisplayed());
+        WebElement addToBasketButton = driver.findElement(By.id("com.bigbasket.mobileapp:id/btnAddToBasket"));
+        Assert.assertEquals(true, addToBasketButton.isDisplayed());
     }
 }

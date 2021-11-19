@@ -1,6 +1,6 @@
 package page;
 
-import base.bigbasketBase;
+import base.BigbasketBase;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class LoginPage extends bigbasketBase {
+public class LoginPage extends BigbasketBase {
 
     private AndroidDriver<AndroidElement> driver;
 
@@ -20,21 +20,20 @@ public class LoginPage extends bigbasketBase {
     }
 
     @AndroidFindBy(id = "com.bigbasket.mobileapp:id/text_login")
-    private AndroidElement loginbtn;
+    private AndroidElement loginBtn;
 
     @AndroidFindBy(id = "com.truecaller:id/confirm")
-    private AndroidElement cmfbt;
+    private AndroidElement confirmationBtn;
 
-    public void login(){
-        loginbtn.click();
+    public void loginToBigbasket(){
+        loginBtn.click();
     }
 
     public void confirm() throws InterruptedException {
-        cmfbt.click();
+        confirmationBtn.click();
         
         Thread.sleep(5000);
-        WebElement usericon = driver.findElement(By.id("com.bigbasket.mobileapp:id/unreadChatIcon"));
-        Thread.sleep(2000);
-        Assert.assertEquals(true, usericon.isDisplayed());
+        WebElement userIcon = driver.findElement(By.id("com.bigbasket.mobileapp:id/unreadChatIcon"));
+        Assert.assertEquals(true, userIcon.isDisplayed());
     }
 }
